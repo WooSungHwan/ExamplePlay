@@ -2,6 +2,7 @@ package com.example.demo1;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +21,12 @@ public class Demo1Application {
     @Bean
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper = Jackson2ObjectMapperBuilder.json().serializerByType(Errors.class, new ErrorsSerializer()).build();
+        //1.
+        //objectMapper = Jackson2ObjectMapperBuilder.json().serializerByType(Errors.class, new ErrorsSerializer()).build();
+
+        //2.
+        //objectMapper.registerModule(new JsonModule());
+        //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
         return objectMapper;
     }
 

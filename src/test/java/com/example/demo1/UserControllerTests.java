@@ -28,7 +28,7 @@ public class UserControllerTests {
     @Ignore
     public void addUser() throws Exception {
         UserParam param = new UserParam();
-        param.setEmail("doqndnffo@gmail.com");
+        param.setEmail("doqndnffogmail.com");
 
         mockMvc.perform(post("/user")
                     .contentType(MediaTypes.HAL_JSON_VALUE)
